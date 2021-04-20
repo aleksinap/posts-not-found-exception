@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.netology.service.WallServiceKtTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-04-20T05:19:59" hostname="LENOVO" time="0.857">
+  <properties/>
+  <testcase name="updateExisting" classname="ru.netology.service.WallServiceKtTest" time="0.749"/>
+  <testcase name="add_id_is_not_equal_zero" classname="ru.netology.service.WallServiceKtTest" time="0.0"/>
+  <testcase name="updateNotExisting" classname="ru.netology.service.WallServiceKtTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

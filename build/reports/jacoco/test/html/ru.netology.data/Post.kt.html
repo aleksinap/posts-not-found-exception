@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Post.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">posts-not-found-exception</a> &gt; <a href="index.source.html" class="el_package">ru.netology.data</a> &gt; <span class="el_source">Post.kt</span></div><h1>Post.kt</h1><pre class="source lang-java linenums">package ru.netology.data
+
+<span class="fc" id="L3">data class Post(</span>
+    //    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РїРёСЃРё.
+<span class="fc" id="L5">    val id: Int,</span>
+    //    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РІР»Р°РґРµР»СЊС†Р° СЃС‚РµРЅС‹, РЅР° РєРѕС‚РѕСЂРѕР№ СЂР°Р·РјРµС‰РµРЅР° Р·Р°РїРёСЃСЊ.
+    //    Р’ РІРµСЂСЃРёСЏС… API РЅРёР¶Рµ 5.7 СЌС‚Рѕ РїРѕР»Рµ РЅР°Р·С‹РІР°РµС‚СЃСЏ to_id.
+<span class="fc" id="L8">    val ownerId: Int,</span>
+    //    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РІС‚РѕСЂР° Р·Р°РїРёСЃРё (РѕС‚ С‡СЊРµРіРѕ РёРјРµРЅРё РѕРїСѓР±Р»РёРєРѕРІР°РЅР° Р·Р°РїРёСЃСЊ).
+<span class="nc" id="L10">    val fromId: Int,</span>
+    //    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°, РєРѕС‚РѕСЂС‹Р№ РѕРїСѓР±Р»РёРєРѕРІР°Р» Р·Р°РїРёСЃСЊ (РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ
+    //    С‚РѕР»СЊРєРѕ РґР»СЏ СЃРѕРѕР±С‰РµСЃС‚РІ РїСЂРё Р·Р°РїСЂРѕСЃРµ СЃ РєР»СЋС‡РѕРј РґРѕСЃС‚СѓРїР° Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°).
+    //    Р’РѕР·РІСЂР°С‰Р°РµС‚СЃСЏ РІ Р·Р°РїРёСЃСЏС…, РѕРїСѓР±Р»РёРєРѕРІР°РЅРЅС‹С… РјРµРЅРµРµ 24 С‡Р°СЃРѕРІ РЅР°Р·Р°Рґ.
+<span class="nc" id="L14">    val createdBy: Int,</span>
+    //    РІСЂРµРјСЏ РїСѓР±Р»РёРєР°С†РёРё Р·Р°РїРёСЃРё РІ С„РѕСЂРјР°С‚Рµ unixtime.
+<span class="nc" id="L16">    val date: Int,</span>
+    //    С‚РµРєСЃС‚ Р·Р°РїРёСЃРё.
+<span class="nc" id="L18">    val text: String,</span>
+    //    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РІР»Р°РґРµР»СЊС†Р° Р·Р°РїРёСЃРё, РІ РѕС‚РІРµС‚ РЅР° РєРѕС‚РѕСЂСѓСЋ Р±С‹Р»Р° РѕСЃС‚Р°РІР»РµРЅР° С‚РµРєСѓС‰Р°СЏ.
+<span class="nc" id="L20">    val replyOwnerId: Int,</span>
+    //    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р·Р°РїРёСЃРё, РІ РѕС‚РІРµС‚ РЅР° РєРѕС‚РѕСЂСѓСЋ Р±С‹Р»Р° РѕСЃС‚Р°РІР»РµРЅР° С‚РµРєСѓС‰Р°СЏ.
+<span class="nc" id="L22">    val replyPostId: Int,</span>
+    //    true, РµСЃР»Рё Р·Р°РїРёСЃСЊ Р±С‹Р»Р° СЃРѕР·РґР°РЅР° СЃ РѕРїС†РёРµР№ В«РўРѕР»СЊРєРѕ РґР»СЏ РґСЂСѓР·РµР№В».
+<span class="nc" id="L24">    val friendsOnly: Boolean,</span>
+    //    РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РєРѕРјРјРµРЅС‚Р°СЂРёСЏС… Рє Р·Р°РїРёСЃРё, РѕР±СЉРµРєС‚ СЃ РїРѕР»СЏРјРё:
+<span class="nc" id="L26">    val comments: Comments,</span>
+    //    РёСЃС‚РѕС‡РЅРёРє РјР°С‚РµСЂРёР°Р»Р°, РѕР±СЉРµРєС‚ СЃ РїРѕР»СЏРјРё
+<span class="nc" id="L28">    val copyright: Copyright,</span>
+    //    РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р»Р°Р№РєР°С… Рє Р·Р°РїРёСЃРё, РѕР±СЉРµРєС‚ СЃ РїРѕР»СЏРјРё
+<span class="nc" id="L30">    val likes: Like,</span>
+    //    РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЂРµРїРѕСЃС‚Р°С… Р·Р°РїРёСЃРё (В«Р Р°СЃСЃРєР°Р·Р°С‚СЊ РґСЂСѓР·СЊСЏРјВ»), РѕР±СЉРµРєС‚ СЃ РїРѕР»СЏРјРё
+<span class="nc" id="L32">    val reposts: Repost,</span>
+    //    РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїСЂРѕСЃРјРѕС‚СЂР°С… Р·Р°РїРёСЃРё
+<span class="nc" id="L34">    val views: View,</span>
+    //    С‚РёРї Р·Р°РїРёСЃРё, РјРѕР¶РµС‚ РїСЂРёРЅРёРјР°С‚СЊ СЃР»РµРґСѓСЋС‰РёРµ Р·РЅР°С‡РµРЅРёСЏ: post, copy, reply, postpone, suggest.
+<span class="nc" id="L36">    val postType: String,</span>
+    //    РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ СЃРїРѕСЃРѕР±Рµ СЂР°Р·РјРµС‰РµРЅРёСЏ Р·Р°РїРёСЃРё
+    //    РџРѕР»Рµ РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ РґР»СЏ Standalone-РїСЂРёР»РѕР¶РµРЅРёР№ СЃ РєР»СЋС‡РѕРј РґРѕСЃС‚СѓРїР°, РїРѕР»СѓС‡РµРЅРЅС‹Рј РІ Implicit Flow.
+<span class="nc" id="L39">    val postSource: PostSource?,</span>
+    //    РјРµРґРёР°РІР»РѕР¶РµРЅРёСЏ Р·Р°РїРёСЃРё (С„РѕС‚РѕРіСЂР°С„РёРё, СЃСЃС‹Р»РєРё Рё С‚.Рї.)
+<span class="nc" id="L41">    val attachments: Array&lt;Attachment&gt;?,</span>
+    //    РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ РјРµСЃС‚РѕРїРѕР»РѕР¶РµРЅРёРё
+<span class="nc" id="L43">    val geo: Geo?,</span>
+    //    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РІС‚РѕСЂР°, РµСЃР»Рё Р·Р°РїРёСЃСЊ Р±С‹Р»Р° РѕРїСѓР±Р»РёРєРѕРІР°РЅР° РѕС‚ РёРјРµРЅРё СЃРѕРѕР±С‰РµСЃС‚РІР° Рё РїРѕРґРїРёСЃР°РЅР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј;
+<span class="nc" id="L45">    val signerId: Int,</span>
+    //    РјР°СЃСЃРёРІ, СЃРѕРґРµСЂР¶Р°С‰РёР№ РёСЃС‚РѕСЂРёСЋ СЂРµРїРѕСЃС‚РѕРІ РґР»СЏ Р·Р°РїРёСЃРё.
+    //    Р’РѕР·РІСЂР°С‰Р°РµС‚СЃСЏ С‚РѕР»СЊРєРѕ РІ С‚РѕРј СЃР»СѓС‡Р°Рµ, РµСЃР»Рё Р·Р°РїРёСЃСЊ СЏРІР»СЏРµС‚СЃСЏ СЂРµРїРѕСЃС‚РѕРј.
+    //    РљР°Р¶РґС‹Р№ РёР· РѕР±СЉРµРєС‚РѕРІ РјР°СЃСЃРёРІР°, РІ СЃРІРѕСЋ РѕС‡РµСЂРµРґСЊ, СЏРІР»СЏРµС‚СЃСЏ РѕР±СЉРµРєС‚РѕРј-Р·Р°РїРёСЃСЊСЋ СЃС‚Р°РЅРґР°СЂС‚РЅРѕРіРѕ С„РѕСЂРјР°С‚Р°.
+<span class="nc" id="L49">    val copyHistory: Array&lt;Post&gt;?,</span>
+    //    РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, РјРѕР¶РµС‚ Р»Рё С‚РµРєСѓС‰РёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ Р·Р°РєСЂРµРїРёС‚СЊ Р·Р°РїРёСЃСЊ (true вЂ” РјРѕР¶РµС‚, false вЂ” РЅРµ РјРѕР¶РµС‚).
+<span class="nc" id="L51">    val canPin: Boolean,</span>
+    //    РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, РјРѕР¶РµС‚ Р»Рё С‚РµРєСѓС‰РёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓРґР°Р»РёС‚СЊ Р·Р°РїРёСЃСЊ (true вЂ” РјРѕР¶РµС‚, false вЂ” РЅРµ РјРѕР¶РµС‚).
+<span class="nc" id="L53">    val canDelete: Boolean,</span>
+    //    РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, РјРѕР¶РµС‚ Р»Рё С‚РµРєСѓС‰РёР№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р·Р°РїРёСЃСЊ (true вЂ” РјРѕР¶РµС‚, false вЂ” РЅРµ РјРѕР¶РµС‚).
+<span class="nc" id="L55">    val canEdit: Boolean,</span>
+    //    РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, С‡С‚Рѕ Р·Р°РїРёСЃСЊ Р·Р°РєСЂРµРїР»РµРЅР°.
+<span class="nc" id="L57">    val isPinned: Boolean,</span>
+    //    РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРј, СЃРѕРґРµСЂР¶РёС‚ Р»Рё Р·Р°РїРёСЃСЊ РѕС‚РјРµС‚РєСѓ &quot;СЂРµРєР»Р°РјР°&quot; (true вЂ” РґР°, false вЂ” РЅРµС‚).
+<span class="nc" id="L59">    val markedAsAds: Boolean,</span>
+    //    true, РµСЃР»Рё РѕР±СЉРµРєС‚ РґРѕР±Р°РІР»РµРЅ РІ Р·Р°РєР»Р°РґРєРё Сѓ С‚РµРєСѓС‰РµРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
+<span class="nc" id="L61">    val isFavorite: Boolean,</span>
+    //    РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р·Р°РїРёСЃРё VK Donut
+<span class="nc" id="L63">    val donut: Donut,</span>
+    //    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕС‚Р»РѕР¶РµРЅРЅРѕР№ Р·Р°РїРёСЃРё. Р­С‚Рѕ РїРѕР»Рµ РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ С‚РѕРіРґР°, РєРѕРіРґР° Р·Р°РїРёСЃСЊ СЃС‚РѕСЏР»Р° РЅР° С‚Р°Р№РјРµСЂРµ.
+<span class="nc" id="L65">    val postponedId: Int</span>
+)
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

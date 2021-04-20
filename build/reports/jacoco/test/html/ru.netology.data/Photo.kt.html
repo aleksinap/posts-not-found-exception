@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Photo.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">posts-not-found-exception</a> &gt; <a href="index.source.html" class="el_package">ru.netology.data</a> &gt; <span class="el_source">Photo.kt</span></div><h1>Photo.kt</h1><pre class="source lang-java linenums">package ru.netology.data
+
+<span class="fc" id="L3">data class Photo (</span>
+    //    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С„РѕС‚РѕРіСЂР°С„РёРё
+<span class="nc" id="L5">    val id: Int,</span>
+    //    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°Р»СЊР±РѕРјР°, РІ РєРѕС‚РѕСЂРѕРј РЅР°С…РѕРґРёС‚СЃСЏ С„РѕС‚РѕРіСЂР°С„РёСЏ
+<span class="nc" id="L7">    val albumId: Int,</span>
+    //    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РІР»Р°РґРµР»СЊС†Р° С„РѕС‚РѕРіСЂР°С„РёРё
+<span class="nc" id="L9">    val ownerId: Int,</span>
+    //    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ,
+    //    Р·Р°РіСЂСѓР·РёРІС€РµРіРѕ С„РѕС‚Рѕ (РµСЃР»Рё С„РѕС‚РѕРіСЂР°С„РёСЏ СЂР°Р·РјРµС‰РµРЅР° РІ СЃРѕРѕР±С‰РµСЃС‚РІРµ).
+    //    Р”Р»СЏ С„РѕС‚РѕРіСЂР°С„РёР№, СЂР°Р·РјРµС‰РµРЅРЅС‹С… РѕС‚ РёРјРµРЅРё СЃРѕРѕР±С‰РµСЃС‚РІР°, user_id = 100.
+<span class="nc" id="L13">    val userId: Int,</span>
+    //  С‚РµРєСЃС‚ РѕРїРёСЃР°РЅРёСЏ С„РѕС‚РѕРіСЂР°С„РёРё.
+<span class="nc" id="L15">    val text: String,</span>
+    //    РґР°С‚Р° РґРѕР±Р°РІР»РµРЅРёСЏ РІ С„РѕСЂРјР°С‚Рµ Unixtime
+<span class="nc" id="L17">    val date: Int,</span>
+    //    РјР°СЃСЃРёРІ СЃ РєРѕРїРёСЏРјРё РёР·РѕР±СЂР°Р¶РµРЅРёСЏ РІ СЂР°Р·РЅС‹С… СЂР°Р·РјРµСЂР°С…
+<span class="nc" id="L19">    val sizes: Array&lt;PhotoCopy&gt;,</span>
+    //    С€РёСЂРёРЅР° РѕСЂРёРіРёРЅР°Р»Р° С„РѕС‚РѕРіСЂР°С„РёРё РІ РїРёРєСЃРµР»Р°С…
+<span class="nc" id="L21">    val width: Int,</span>
+    //    РІС‹СЃРѕС‚Р° РѕСЂРёРіРёРЅР°Р»Р° С„РѕС‚РѕРіСЂР°С„РёРё РІ РїРёРєСЃРµР»Р°С…
+<span class="nc" id="L23">    val height: Int</span>
+)
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

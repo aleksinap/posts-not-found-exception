@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>main.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">posts-not-found-exception</a> &gt; <a href="index.source.html" class="el_package">ru.netology</a> &gt; <span class="el_source">main.kt</span></div><h1>main.kt</h1><pre class="source lang-java linenums">package ru.netology
+
+import ru.netology.data.*
+import ru.netology.service.WallService
+
+fun main() {
+<span class="nc" id="L7">    val post = Post(</span>
+<span class="nc" id="L8">        id = 4,</span>
+<span class="nc" id="L9">        ownerId = 12,</span>
+<span class="nc" id="L10">        fromId = 123,</span>
+<span class="nc" id="L11">        createdBy = 1234,</span>
+<span class="nc" id="L12">        date = 12345,</span>
+<span class="nc" id="L13">        text = &quot;РџСЂРёРІРµС‚ РќРµС‚РѕР»РѕРіРёСЏ&quot;,</span>
+<span class="nc" id="L14">        replyOwnerId = 123456,</span>
+<span class="nc" id="L15">        replyPostId = 1234567,</span>
+<span class="nc" id="L16">        friendsOnly = false,</span>
+<span class="nc" id="L17">        comments = Comments(</span>
+<span class="nc" id="L18">            count = 1,</span>
+<span class="nc" id="L19">            canPost = true,</span>
+<span class="nc" id="L20">            groupsCanPost = true,</span>
+<span class="nc" id="L21">            canClose = false,</span>
+<span class="nc" id="L22">            canOpen = false</span>
+        ),
+<span class="nc" id="L24">        copyright = Copyright(</span>
+<span class="nc" id="L25">            id = 12345678,</span>
+<span class="nc" id="L26">            link = &quot;ru.netology&quot;,</span>
+<span class="nc" id="L27">            name = &quot;РќРµС‚РѕР»РѕРіРёСЏ&quot;,</span>
+<span class="nc" id="L28">            type = &quot;РќРµРёР·РІРµСЃС‚РЅРѕ&quot;</span>
+        ),
+<span class="nc" id="L30">        likes = Like(</span>
+<span class="nc" id="L31">            count = 121,</span>
+<span class="nc" id="L32">            userLikes = false,</span>
+<span class="nc" id="L33">            canLike = true,</span>
+<span class="nc" id="L34">            canPublish = false</span>
+        ),
+<span class="nc" id="L36">        reposts = Repost(</span>
+<span class="nc" id="L37">            count = 1,</span>
+<span class="nc" id="L38">            userReposted = false</span>
+        ),
+<span class="nc" id="L40">        views = View(count = 25),</span>
+<span class="nc" id="L41">        postType = &quot;post&quot;,</span>
+<span class="nc" id="L42">        postSource = PostSource(</span>
+<span class="nc" id="L43">            type = &quot;vk&quot;,</span>
+<span class="nc" id="L44">            platform = &quot;android&quot;,</span>
+<span class="nc" id="L45">            data = &quot;profileActivity&quot;,</span>
+<span class="nc" id="L46">            url = &quot;https://netology.ru&quot;</span>
+        ),
+<span class="nc" id="L48">        attachments = arrayOf(</span>
+<span class="nc" id="L49">            PhotoAttachment(</span>
+<span class="nc" id="L50">                photo = Photo(</span>
+<span class="nc" id="L51">                    id = 1,</span>
+<span class="nc" id="L52">                    albumId = 1,</span>
+<span class="nc" id="L53">                    ownerId = 1,</span>
+<span class="nc" id="L54">                    userId = 1,</span>
+<span class="nc" id="L55">                    text = &quot;1&quot;,</span>
+<span class="nc" id="L56">                    date = 112345,</span>
+<span class="nc" id="L57">                    sizes = arrayOf(),</span>
+<span class="nc" id="L58">                    width = 1024,</span>
+<span class="nc" id="L59">                    height = 768</span>
+                )
+            ),
+<span class="nc" id="L62">            VideoAttachment(</span>
+<span class="nc" id="L63">                video = Video(</span>
+<span class="nc" id="L64">                    id = 1,</span>
+<span class="nc" id="L65">                    ownerId = 1,</span>
+<span class="nc" id="L66">                    title = &quot;&quot;,</span>
+<span class="nc" id="L67">                    description = &quot;РќРµРґРѕСЃС‚СѓРїРЅРѕ&quot;,</span>
+<span class="nc" id="L68">                    duration = 1234,</span>
+<span class="nc" id="L69">                    image = arrayOf(),</span>
+<span class="nc" id="L70">                    firstFrame = arrayOf(),</span>
+<span class="nc" id="L71">                    date = 1423434,</span>
+<span class="nc" id="L72">                    addingDate = 1234654,</span>
+<span class="nc" id="L73">                    views = 234,</span>
+<span class="nc" id="L74">                    localViews = 6,</span>
+<span class="nc" id="L75">                    comments = 23,</span>
+<span class="nc" id="L76">                    player= &quot;flash&quot;,</span>
+<span class="nc" id="L77">                    platform = &quot;https://netology.ru&quot;,</span>
+<span class="nc" id="L78">                    canAdd = true,</span>
+<span class="nc" id="L79">                    isPrivate = true,</span>
+<span class="nc" id="L80">                    accessKey = &quot;https://netology.ru&quot;,</span>
+<span class="nc" id="L81">                    processing = true,</span>
+<span class="nc" id="L82">                    isFavorite = true,</span>
+<span class="nc" id="L83">                    canComment = true,</span>
+<span class="nc" id="L84">                    canEdit = true,</span>
+<span class="nc" id="L85">                    canLike = true,</span>
+<span class="nc" id="L86">                    canRepost = true,</span>
+<span class="nc" id="L87">                    canSubscribe = true,</span>
+<span class="nc" id="L88">                    canAddToFaves = true,</span>
+<span class="nc" id="L89">                    canAtachLink = true,</span>
+<span class="nc" id="L90">                    width = 1024,</span>
+<span class="nc" id="L91">                    height = 768,</span>
+<span class="nc" id="L92">                    userId = 456345,</span>
+<span class="nc" id="L93">                    converting = true,</span>
+<span class="nc" id="L94">                    added = true,</span>
+<span class="nc" id="L95">                    isSubscribed = true,</span>
+<span class="nc" id="L96">                    repeat = true,</span>
+<span class="nc" id="L97">                    type = &quot;video&quot;,</span>
+<span class="nc" id="L98">                    balance = 0,</span>
+<span class="nc" id="L99">                    liveStatus = &quot;waiting&quot;,</span>
+<span class="nc" id="L100">                    live = true,</span>
+<span class="nc" id="L101">                    upcoming = true,</span>
+<span class="nc" id="L102">                    spectators = 23</span>
+                )
+            ),
+<span class="nc" id="L105">            AudioAttachment(</span>
+<span class="nc" id="L106">                audio = Audio(</span>
+<span class="nc" id="L107">                    id = 1,</span>
+<span class="nc" id="L108">                    owner_id = 1,</span>
+<span class="nc" id="L109">                    artist = &quot;No doubt&quot;,</span>
+<span class="nc" id="L110">                    title = &quot;Don't speak&quot;,</span>
+<span class="nc" id="L111">                    duration = 1,</span>
+<span class="nc" id="L112">                    url = &quot;https://netology.ru&quot;,</span>
+<span class="nc" id="L113">                    lyricsId = 1,</span>
+<span class="nc" id="L114">                    albumId = 1,</span>
+<span class="nc" id="L115">                    genreId = 1,</span>
+<span class="nc" id="L116">                    date = 1,</span>
+<span class="nc" id="L117">                    no_search = true,</span>
+<span class="nc" id="L118">                    isHq = true</span>
+                )
+            ),
+<span class="nc" id="L121">            PostedPhotoAttachment(</span>
+<span class="nc" id="L122">                postedPhoto = PostedPhoto(</span>
+<span class="nc" id="L123">                    id = 1,</span>
+<span class="nc" id="L124">                    ownerId = 1,</span>
+<span class="nc" id="L125">                    photo130 = &quot;https://netology.ru&quot;,</span>
+<span class="nc" id="L126">                    photo604 = &quot;https://netology.ru&quot;</span>
+                )
+            ),
+<span class="nc" id="L129">            NoteAttachment(</span>
+<span class="nc" id="L130">                note = Note(</span>
+<span class="nc" id="L131">                    id = 1,</span>
+<span class="nc" id="L132">                    ownerId = 1,</span>
+<span class="nc" id="L133">                    title = &quot;РќРµРґРѕСЃС‚СѓРїРЅРѕ&quot;,</span>
+<span class="nc" id="L134">                    text = &quot;РќРµРґРѕСЃС‚СѓРїРЅРѕ&quot;,</span>
+<span class="nc" id="L135">                    date = 1654,</span>
+<span class="nc" id="L136">                    comments = 1,</span>
+<span class="nc" id="L137">                    readComments = 1,</span>
+<span class="nc" id="L138">                    viewUrl = &quot;https://netology.ru&quot;</span>
+                )
+            )
+        ),
+<span class="nc" id="L142">        geo = Geo(</span>
+<span class="nc" id="L143">            type = &quot;type&quot;,</span>
+<span class="nc" id="L144">            coordinates = &quot;coordinates&quot;,</span>
+<span class="nc" id="L145">            place = null</span>
+        ),
+<span class="nc" id="L147">        signerId = 2345,</span>
+<span class="nc" id="L148">        copyHistory = null,</span>
+<span class="nc" id="L149">        canPin = true,</span>
+<span class="nc" id="L150">        canDelete = false,</span>
+<span class="nc" id="L151">        canEdit = false,</span>
+<span class="nc" id="L152">        isPinned = false,</span>
+<span class="nc" id="L153">        markedAsAds = false,</span>
+<span class="nc" id="L154">        isFavorite = true,</span>
+<span class="nc" id="L155">        donut = Donut(</span>
+<span class="nc" id="L156">            isDonut = false,</span>
+<span class="nc" id="L157">            paidDuration = 1234567890,</span>
+<span class="nc" id="L158">            placeholder = Placeholder(),</span>
+<span class="nc" id="L159">            canPublishFreeCopy = false,</span>
+<span class="nc" id="L160">            editMode = &quot;duration&quot;</span>
+        ),
+<span class="nc" id="L162">        postponedId = 12345</span>
+    )
+<span class="nc" id="L164">    val post1 = Post(</span>
+<span class="nc" id="L165">        id = 2,</span>
+<span class="nc" id="L166">        ownerId = 1234,</span>
+<span class="nc" id="L167">        fromId = 456,</span>
+<span class="nc" id="L168">        createdBy = 67867,</span>
+<span class="nc" id="L169">        date = 567512345,</span>
+<span class="nc" id="L170">        text = &quot;Updated&quot;,</span>
+<span class="nc" id="L171">        replyOwnerId = 65123456,</span>
+<span class="nc" id="L172">        replyPostId = 671234567,</span>
+<span class="nc" id="L173">        friendsOnly = true,</span>
+<span class="nc" id="L174">        comments = Comments(</span>
+<span class="nc" id="L175">            count = 1,</span>
+<span class="nc" id="L176">            canPost = true,</span>
+<span class="nc" id="L177">            groupsCanPost = true,</span>
+<span class="nc" id="L178">            canClose = false,</span>
+<span class="nc" id="L179">            canOpen = false</span>
+        ),
+<span class="nc" id="L181">        copyright = Copyright(</span>
+<span class="nc" id="L182">            id = 12345678,</span>
+<span class="nc" id="L183">            link = &quot;ru.netology&quot;,</span>
+<span class="nc" id="L184">            name = &quot;РќРµС‚РѕР»РѕРіРёСЏ&quot;,</span>
+<span class="nc" id="L185">            type = &quot;РќРµРёР·РІРµСЃС‚РЅРѕ&quot;</span>
+        ),
+<span class="nc" id="L187">        likes = Like(</span>
+<span class="nc" id="L188">            count = 121,</span>
+<span class="nc" id="L189">            userLikes = false,</span>
+<span class="nc" id="L190">            canLike = true,</span>
+<span class="nc" id="L191">            canPublish = false</span>
+        ),
+<span class="nc" id="L193">        reposts = Repost(</span>
+<span class="nc" id="L194">            count = 1,</span>
+<span class="nc" id="L195">            userReposted = false</span>
+        ),
+<span class="nc" id="L197">        views = View(count = 125),</span>
+<span class="nc" id="L198">        postType = &quot;post&quot;,</span>
+<span class="nc" id="L199">        postSource = PostSource(</span>
+<span class="nc" id="L200">            type = &quot;api&quot;,</span>
+<span class="nc" id="L201">            platform = &quot;android&quot;,</span>
+<span class="nc" id="L202">            data = &quot;z&quot;,</span>
+<span class="nc" id="L203">            url = &quot;https://netology.ru&quot;</span>
+        ),
+<span class="nc" id="L205">        attachments = arrayOf(</span>
+<span class="nc" id="L206">            PhotoAttachment(</span>
+<span class="nc" id="L207">                photo = Photo(</span>
+<span class="nc" id="L208">                    id = 1,</span>
+<span class="nc" id="L209">                    albumId = 1,</span>
+<span class="nc" id="L210">                    ownerId = 1,</span>
+<span class="nc" id="L211">                    userId = 1,</span>
+<span class="nc" id="L212">                    text = &quot;1&quot;,</span>
+<span class="nc" id="L213">                    date = 112345,</span>
+<span class="nc" id="L214">                    sizes = arrayOf(),</span>
+<span class="nc" id="L215">                    width = 1024,</span>
+<span class="nc" id="L216">                    height = 768</span>
+                )
+            ),
+<span class="nc" id="L219">            VideoAttachment(</span>
+<span class="nc" id="L220">                video = Video(</span>
+<span class="nc" id="L221">                    id = 1,</span>
+<span class="nc" id="L222">                    ownerId = 1,</span>
+<span class="nc" id="L223">                    title = &quot;&quot;,</span>
+<span class="nc" id="L224">                    description = &quot;РќРµРґРѕСЃС‚СѓРїРЅРѕ&quot;,</span>
+<span class="nc" id="L225">                    duration = 1234,</span>
+<span class="nc" id="L226">                    image = arrayOf(),</span>
+<span class="nc" id="L227">                    firstFrame = arrayOf(),</span>
+<span class="nc" id="L228">                    date = 1423434,</span>
+<span class="nc" id="L229">                    addingDate = 1234654,</span>
+<span class="nc" id="L230">                    views = 234,</span>
+<span class="nc" id="L231">                    localViews = 6,</span>
+<span class="nc" id="L232">                    comments = 23,</span>
+<span class="nc" id="L233">                    player= &quot;flash&quot;,</span>
+<span class="nc" id="L234">                    platform = &quot;https://netology.ru&quot;,</span>
+<span class="nc" id="L235">                    canAdd = true,</span>
+<span class="nc" id="L236">                    isPrivate = true,</span>
+<span class="nc" id="L237">                    accessKey = &quot;https://netology.ru&quot;,</span>
+<span class="nc" id="L238">                    processing = true,</span>
+<span class="nc" id="L239">                    isFavorite = true,</span>
+<span class="nc" id="L240">                    canComment = true,</span>
+<span class="nc" id="L241">                    canEdit = true,</span>
+<span class="nc" id="L242">                    canLike = true,</span>
+<span class="nc" id="L243">                    canRepost = true,</span>
+<span class="nc" id="L244">                    canSubscribe = true,</span>
+<span class="nc" id="L245">                    canAddToFaves = true,</span>
+<span class="nc" id="L246">                    canAtachLink = true,</span>
+<span class="nc" id="L247">                    width = 1024,</span>
+<span class="nc" id="L248">                    height = 768,</span>
+<span class="nc" id="L249">                    userId = 456345,</span>
+<span class="nc" id="L250">                    converting = true,</span>
+<span class="nc" id="L251">                    added = true,</span>
+<span class="nc" id="L252">                    isSubscribed = true,</span>
+<span class="nc" id="L253">                    repeat = true,</span>
+<span class="nc" id="L254">                    type = &quot;video&quot;,</span>
+<span class="nc" id="L255">                    balance = 0,</span>
+<span class="nc" id="L256">                    liveStatus = &quot;waiting&quot;,</span>
+<span class="nc" id="L257">                    live = true,</span>
+<span class="nc" id="L258">                    upcoming = true,</span>
+<span class="nc" id="L259">                    spectators = 23</span>
+                )
+            ),
+<span class="nc" id="L262">            AudioAttachment(</span>
+<span class="nc" id="L263">                audio = Audio(</span>
+<span class="nc" id="L264">                    id = 1,</span>
+<span class="nc" id="L265">                    owner_id = 1,</span>
+<span class="nc" id="L266">                    artist = &quot;No doubt&quot;,</span>
+<span class="nc" id="L267">                    title = &quot;Don't speak&quot;,</span>
+<span class="nc" id="L268">                    duration = 1,</span>
+<span class="nc" id="L269">                    url = &quot;https://netology.ru&quot;,</span>
+<span class="nc" id="L270">                    lyricsId = 1,</span>
+<span class="nc" id="L271">                    albumId = 1,</span>
+<span class="nc" id="L272">                    genreId = 1,</span>
+<span class="nc" id="L273">                    date = 1,</span>
+<span class="nc" id="L274">                    no_search = true,</span>
+<span class="nc" id="L275">                    isHq = true</span>
+                )
+            ),
+<span class="nc" id="L278">            PostedPhotoAttachment(</span>
+<span class="nc" id="L279">                postedPhoto = PostedPhoto(</span>
+<span class="nc" id="L280">                    id = 1,</span>
+<span class="nc" id="L281">                    ownerId = 1,</span>
+<span class="nc" id="L282">                    photo130 = &quot;https://netology.ru&quot;,</span>
+<span class="nc" id="L283">                    photo604 = &quot;https://netology.ru&quot;</span>
+                )
+            ),
+<span class="nc" id="L286">            NoteAttachment(</span>
+<span class="nc" id="L287">                note = Note(</span>
+<span class="nc" id="L288">                    id = 1,</span>
+<span class="nc" id="L289">                    ownerId = 1,</span>
+<span class="nc" id="L290">                    title = &quot;РќРµРґРѕСЃС‚СѓРїРЅРѕ&quot;,</span>
+<span class="nc" id="L291">                    text = &quot;РќРµРґРѕСЃС‚СѓРїРЅРѕ&quot;,</span>
+<span class="nc" id="L292">                    date = 1654,</span>
+<span class="nc" id="L293">                    comments = 1,</span>
+<span class="nc" id="L294">                    readComments = 1,</span>
+<span class="nc" id="L295">                    viewUrl = &quot;https://netology.ru&quot;</span>
+                )
+            )
+        ),
+<span class="nc" id="L299">        geo = Geo(</span>
+<span class="nc" id="L300">            type = &quot;type&quot;,</span>
+<span class="nc" id="L301">            coordinates = &quot;coordinates&quot;,</span>
+<span class="nc" id="L302">            place = null</span>
+        ),
+<span class="nc" id="L304">        signerId = 435,</span>
+<span class="nc" id="L305">        copyHistory = null,</span>
+<span class="nc" id="L306">        canPin = true,</span>
+<span class="nc" id="L307">        canDelete = true,</span>
+<span class="nc" id="L308">        canEdit = true,</span>
+<span class="nc" id="L309">        isPinned = true,</span>
+<span class="nc" id="L310">        markedAsAds = true,</span>
+<span class="nc" id="L311">        isFavorite = true,</span>
+<span class="nc" id="L312">        donut = Donut(</span>
+<span class="nc" id="L313">            isDonut = false,</span>
+<span class="nc" id="L314">            paidDuration = 1234567890,</span>
+<span class="nc" id="L315">            placeholder = Placeholder(),</span>
+<span class="nc" id="L316">            canPublishFreeCopy = false,</span>
+<span class="nc" id="L317">            editMode = &quot;duration&quot;</span>
+        ),
+<span class="nc" id="L319">        postponedId = 34563</span>
+    )
+
+<span class="nc" id="L322">    val comment = Comment(</span>
+<span class="nc" id="L323">        id = 1231,</span>
+<span class="nc" id="L324">        fromId = 4342,</span>
+<span class="nc" id="L325">        postId = 3,</span>
+<span class="nc" id="L326">        date = 324567,</span>
+<span class="nc" id="L327">        text = &quot;РџСЂРёРІРµС‚&quot;,</span>
+<span class="nc" id="L328">        replyToUser = 3423,</span>
+<span class="nc" id="L329">        replyToComment = 1231,</span>
+<span class="nc" id="L330">        attachments = NoteAttachment(</span>
+<span class="nc" id="L331">            note = Note(</span>
+<span class="nc" id="L332">                id = 1,</span>
+<span class="nc" id="L333">                ownerId = 1,</span>
+<span class="nc" id="L334">                title = &quot;РќРµРґРѕСЃС‚СѓРїРЅРѕ&quot;,</span>
+<span class="nc" id="L335">                text = &quot;РќРµРґРѕСЃС‚СѓРїРЅРѕ&quot;,</span>
+<span class="nc" id="L336">                date = 1654,</span>
+<span class="nc" id="L337">                comments = 1,</span>
+<span class="nc" id="L338">                readComments = 1,</span>
+<span class="nc" id="L339">                viewUrl = &quot;https://netology.ru&quot;</span>
+            )
+        ),
+<span class="nc" id="L342">        parentsStack = null,</span>
+<span class="nc" id="L343">        thread = null</span>
+    )
+
+<span class="nc" id="L346">    val wallService = WallService()</span>
+<span class="nc" id="L347">    wallService.add(post)</span>
+<span class="nc" id="L348">    wallService.add(post)</span>
+<span class="nc" id="L349">    wallService.add(post)</span>
+<span class="nc" id="L350">    wallService.update(post1)</span>
+<span class="nc" id="L351">    wallService.createComment(comment)</span>
+<span class="nc" id="L352">}</span>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

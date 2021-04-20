@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Audio.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">posts-not-found-exception</a> &gt; <a href="index.source.html" class="el_package">ru.netology.data</a> &gt; <span class="el_source">Audio.kt</span></div><h1>Audio.kt</h1><pre class="source lang-java linenums">package ru.netology.data
+
+<span class="fc" id="L3">data class Audio (</span>
+//    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°СѓРґРёРѕР·Р°РїРёСЃРё
+<span class="nc" id="L5">    val id: Int,</span>
+//    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РІР»Р°РґРµР»СЊС†Р° Р°СѓРґРёРѕР·Р°РїРёСЃРё
+<span class="nc" id="L7">    val owner_id: Int,</span>
+//    РёСЃРїРѕР»РЅРёС‚РµР»СЊ
+<span class="nc" id="L9">    val artist: String,</span>
+//    РЅР°Р·РІР°РЅРёРµ РєРѕРјРїРѕР·РёС†РёРё
+<span class="nc" id="L11">    val title: String,</span>
+//    Р»РёС‚РµР»СЊРЅРѕСЃС‚СЊ Р°СѓРґРёРѕР·Р°РїРёСЃРё РІ СЃРµРєСѓРЅРґР°С…
+<span class="nc" id="L13">    val duration: Int,</span>
+//    СЃСЃС‹Р»РєР° РЅР° mp3
+<span class="nc" id="L15">    val url: String,</span>
+//    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С‚РµРєСЃС‚Р° Р°СѓРґРёРѕР·Р°РїРёСЃРё (РµСЃР»Рё РґРѕСЃС‚СѓРїРЅРѕ)
+<span class="nc" id="L17">    val lyricsId: Int?,</span>
+//    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°Р»СЊР±РѕРјР°, РІ РєРѕС‚РѕСЂРѕРј РЅР°С…РѕРґРёС‚СЃСЏ Р°СѓРґРёРѕР·Р°РїРёСЃСЊ (РµСЃР»Рё РїСЂРёСЃРІРѕРµРЅ)
+<span class="nc" id="L19">    val albumId: Int?,</span>
+//    РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р¶Р°РЅСЂР° РёР· СЃРїРёСЃРєР° Р°СѓРґРёРѕ Р¶Р°РЅСЂРѕРІ
+<span class="nc" id="L21">    val genreId: Int,</span>
+//    РґР°С‚Р° РґРѕР±Р°РІР»РµРЅРёСЏ
+<span class="nc" id="L23">    val date: Int,</span>
+//    true, РµСЃР»Рё РІРєР»СЋС‡РµРЅР° РѕРїС†РёСЏ В«РќРµ РІС‹РІРѕРґРёС‚СЊ РїСЂРё РїРѕРёСЃРєРµВ». Р•СЃР»Рё РѕРїС†РёСЏ РѕС‚РєР»СЋС‡РµРЅР°, РїРѕР»Рµ РЅРµ РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ.
+<span class="nc" id="L25">    val no_search: Boolean,</span>
+//    true, РµСЃР»Рё Р°СѓРґРёРѕ РІ РІС‹СЃРѕРєРѕРј РєР°С‡РµСЃС‚РІРµ
+<span class="nc" id="L27">    val isHq: Boolean,</span>
+)
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
